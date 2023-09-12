@@ -1,9 +1,13 @@
 import express from 'express';
-import {availableRoutes} from '../controllers/user.js';
-// import { isAuthenticated } from "../middlewares/auth.js";
+import {} from '../controllers/user.js';
+import {isAuthenticated} from '../middlewares/auth.js';
+import {storeLocation, nearByService} from '../controllers/user.js';
 
 const router = express.Router();
 
-// router.get("/", isAuthenticated, availableRoutes);
+router.put('/userLocation', isAuthenticated, storeLocation);
+router.post('/nearestService', nearByService);
+
+router.post('/sendRequest');
 
 export default router;

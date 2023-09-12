@@ -245,7 +245,7 @@ export const login = async (req, res) => {
       });
     }
     const token = jwt.sign(
-      {email: user.email, id: user._id},
+      {email: user.email, id: user._id, role: 'user'},
       process.env.SECRET
     );
     res.status(200).send({

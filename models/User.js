@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const UserSchema = mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     phoneNo: {
       type: String,
@@ -10,6 +10,7 @@ const UserSchema = mongoose.Schema(
     email: {
       type: String,
       required: true,
+      lowercase: true,
       unique: true,
     },
     password: {
@@ -26,12 +27,16 @@ const UserSchema = mongoose.Schema(
       required: true,
       default: false,
     },
-    // hobbies: [
-    //   {
-    //     type: String,
-    //     required: true,
-    //   },
-    // ],
+    isSubscribed: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    location: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'location',
+      required: false,
+    },
   },
   {
     timestamps: true,

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const OtpSchema = mongoose.Schema(
+const OtpSchema = new mongoose.Schema(
   {
     phoneNo: {
       type: String,
